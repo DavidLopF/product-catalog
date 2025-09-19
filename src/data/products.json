@@ -1,0 +1,56 @@
+[
+  {
+    "id": "p1",
+    "name": "Cheesecake de frutos rojos",
+    "description": "Cremoso, con salsa artesanal de frutos rojos.",
+    "price": 28000,
+    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "alt": "Cheesecake con frutos rojos",
+    "badge": "Top"
+  },
+  {
+    "id": "p2",
+    "name": "Brownie con nueces",
+    "description": "Textura fudgy con trozos de nuez tostada.",
+    "price": 12000,
+    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "alt": "Brownie de chocolate",
+    "badge": ""
+  },
+  {
+    "id": "p3",
+    "name": "Galletas de avena",
+    "description": "Suaves, con chips de chocolate y canela.",
+    "price": 8000,
+    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "alt": "Galletas de avena con chocolate",
+    "badge": "Nuevo"
+  },
+  {
+    "id": "p4",
+    "name": "Galletas de avena",
+    "description": "Suaves, con chips de chocolate y canela.",
+    "price": 8000,
+    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "alt": "Galletas de avena con chocolate",
+    "badge": "Nuevo"
+  }, 
+  {
+    "id": "p3",
+    "name": "Galletas de avena",
+    "description": "Suaves, con chips de chocolate y canela.",
+    "price": 8000,
+    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "alt": "Galletas de avena con chocolate",
+    "badge": "Nuevo"
+  },
+  {
+    "id": "p3",
+    "name": "Galletas de avena",
+    "description": "Suaves, con chips de chocolate y canela.",
+    "price": 8000,
+    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "alt": "Galletas de avena con chocolate",
+    "badge": "Nuevo"
+  }
+]
