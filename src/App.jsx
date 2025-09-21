@@ -18,7 +18,7 @@ export default function App() {
           element={
             <TVShowcase
               products={products}
-              brand="Mi Emprendimiento"
+              brand="Molto"
               whatsapp="573001112233"
               instagram="@mi_marca"
               qrSrc="/qr-placeholder.svg"
@@ -33,12 +33,12 @@ export default function App() {
           element={
             <TabletShowcase
               products={products}
-              brand="Mi Emprendimiento"
-              whatsapp="573001112233"
-              instagram="@mi_marca"
-              qrSrc="/qr-placeholder.svg"
-              autoSlideMs={10000}
-              primaryColor="#6c5dd3"
+              brand="Molto"
+              whatsapp="321 225 4230"
+              instagram="@molto_co"
+              qrSrc="https://i.ibb.co/gphnJKq/molto-co-qr-1.png"
+              autoSlideMs={6000}
+              primaryColor="#f6e8d6"
             />
           } 
         />

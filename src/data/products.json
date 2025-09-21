@@ -1,56 +1,38 @@
 [
-  {
+    {
     "id": "p1",
-    "name": "Cheesecake de frutos rojos",
-    "description": "Cremoso, con salsa artesanal de frutos rojos.",
-    "price": 28000,
-    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
+    "name": "Pave de leche klim",
+    "description": "Delicioso postre frio con base de galleta y crema de leche.",
+    "price": 10000,
+    "image": "https://i.ibb.co/8nYBQ2kd/Imagen-de-Whats-App-2025-09-20-a-las-20-13-06-943c9e9c.jpg",
+    "alt": "Pave de leche klim",
+    "badge": ""
+  },
+  {
+    "id": "p2",
+    "name": "Cheesecake frutos rojos",
+    "description": "Base de chocolate blanco con salsa de frutos rojos.",
+    "price": 8500,
+    "image": "https://i.ibb.co/DgWZxTvw/Gemini-Generated-Image-yvhcwoyvhcwoyvhc.png",
     "alt": "Cheesecake con frutos rojos",
     "badge": "Top"
   },
   {
-    "id": "p2",
-    "name": "Brownie con nueces",
-    "description": "Textura fudgy con trozos de nuez tostada.",
-    "price": 12000,
-    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
-    "alt": "Brownie de chocolate",
-    "badge": ""
-  },
-  {
     "id": "p3",
-    "name": "Galletas de avena",
-    "description": "Suaves, con chips de chocolate y canela.",
-    "price": 8000,
-    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
-    "alt": "Galletas de avena con chocolate",
-    "badge": "Nuevo"
+    "name": "Cheesecake de limon",
+    "description": "Cremoso, con salsa artesanal de limon.",
+    "price": 8500,
+    "image": "https://i.ibb.co/hJMHhjvG/Imagen-de-Whats-App-2025-09-20-a-las-20-13-58-391f4089.jpg",
+    "alt": "Cheesecake de limon",
+    "badge": "Top"
   },
-  {
+    {
     "id": "p4",
-    "name": "Galletas de avena",
-    "description": "Suaves, con chips de chocolate y canela.",
-    "price": 8000,
-    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
-    "alt": "Galletas de avena con chocolate",
-    "badge": "Nuevo"
-  }, 
-  {
-    "id": "p3",
-    "name": "Galletas de avena",
-    "description": "Suaves, con chips de chocolate y canela.",
-    "price": 8000,
-    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
-    "alt": "Galletas de avena con chocolate",
-    "badge": "Nuevo"
-  },
-  {
-    "id": "p3",
-    "name": "Galletas de avena",
-    "description": "Suaves, con chips de chocolate y canela.",
-    "price": 8000,
-    "image": "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2Fdims4%2Fdefault%2F9ff9cfe%2F2147483647%2Fthumbnail%2F2048x1152%2Fquality%2F75%2F%3Furl%3Dhttp%253A%252F%252Fuvn-brightspot.s3.amazonaws.com%252Ffe%252Fa6%252Ffdfedab44071afa6e41a674858a2%252F5e1bfb2b9b9a45d9bbf90bcf594b599a&w=1280&q=75",
-    "alt": "Galletas de avena con chocolate",
-    "badge": "Nuevo"
+    "name": "Cuchareable de chocolate",
+    "description": "Torta de chocolate con deliciosa crema de vainilla con chocolate blanco.",
+    "price": 10000,
+    "image": "https://i.ibb.co/rR8rv4Vm/Imagen-de-Whats-App-2025-09-20-a-las-20-13-06-e0ed79f9.jpg",
+    "alt": "Cuchareable de chocolate",
+    "badge": "Top"
   }
 ]

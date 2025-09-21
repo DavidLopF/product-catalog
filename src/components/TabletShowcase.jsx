@@ -14,12 +14,12 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 export default function TabletShowcase({
   products,
-  brand = "Mi Emprendimiento",
-  whatsapp = "573001112233",
-  instagram = "@mi_marca",
+  brand = "Molto",
+  whatsapp = "321 225 4330",
+  instagram = "@Molto_co",
   qrSrc = "/qr-placeholder.svg",
   autoSlideMs = 8000,
-  primaryColor = "#6c5dd3",
+  primaryColor = "#f6e8d6",
 }) {
   const data = useMemo(
     () =>
@@ -169,10 +169,13 @@ function Header({ brand, currentView, setCurrentView, isAutoPlaying, setIsAutoPl
   return (
     <header className="h-20 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 px-6 flex items-center justify-between shadow-sm">
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-purple-600 shadow-lg" />
+        <img
+          src="https://i.ibb.co/fGCPRPq8/Imagen-de-Whats-App-2025-09-20-a-las-20-17-56-0a3665da.jpg"
+          alt="Logo Molto"
+          className="w-12 h-12 rounded-xl object-cover shadow-lg border border-gray-200 bg-white"
+        />
         <div>
           <h1 className="text-xl font-bold text-gray-900">{brand}</h1>
-          <p className="text-sm text-gray-500">Feria de Emprendimiento</p>
         </div>
       </div>
 
@@ -198,6 +201,16 @@ function Header({ brand, currentView, setCurrentView, isAutoPlaying, setIsAutoPl
 }
 
 function CatalogView({ products, onSelectProduct, selectedIndex }) {
+  // refs para cada tarjeta
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    if (cardRefs.current[selectedIndex]) {
+      cardRefs.current[selectedIndex].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }
+  }, [selectedIndex]);
+
+  const isFour = products.length === 4;
   return (
     <div className="h-full animate-fadeIn">
       <div className="text-center mb-8">
@@ -206,23 +219,53 @@ function CatalogView({ products, onSelectProduct, selectedIndex }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 h-[calc(100%-140px)] overflow-y-auto px-4">
-        {products.map((product, index) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            isSelected={index === selectedIndex}
-            onClick={() => onSelectProduct(index)}
-            index={index}
-          />
-        ))}
+        {isFour ? (
+          <>
+            {/* Primeros 3 productos en la primera fila */}
+            {products.slice(0, 3).map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                isSelected={index === selectedIndex}
+                onClick={() => onSelectProduct(index)}
+                index={index}
+                ref={el => cardRefs.current[index] = el}
+              />
+            ))}
+            {/* Cuarto producto centrado en la segunda fila */}
+            <div className="col-span-full flex justify-center">
+              <ProductCard
+                key={products[3].id}
+                product={products[3]}
+                isSelected={3 === selectedIndex}
+                onClick={() => onSelectProduct(3)}
+                index={3}
+                ref={el => cardRefs.current[3] = el}
+              />
+            </div>
+          </>
+        ) : (
+          products.map((product, index) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              isSelected={index === selectedIndex}
+              onClick={() => onSelectProduct(index)}
+              index={index}
+              ref={el => cardRefs.current[index] = el}
+            />
+          ))
+        )}
       </div>
     </div>
   );
 }
 
-function ProductCard({ product, isSelected, onClick, index }) {
+// Permitir ref en ProductCard
+const ProductCard = React.forwardRef(function ProductCard({ product, isSelected, onClick, index }, ref) {
   return (
     <button
+      ref={ref}
       onClick={onClick}
       className={`group relative bg-white hover:bg-gray-50 rounded-3xl p-6 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-lg hover:shadow-2xl ${
         isSelected ? "ring-3 ring-[var(--primary)] bg-gradient-to-br from-white to-purple-50 shadow-2xl scale-105" : "ring-1 ring-gray-200"
@@ -236,7 +279,19 @@ function ProductCard({ product, isSelected, onClick, index }) {
           className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110"
         />
         {product.badge && (
-          <span className="absolute top-4 left-4 bg-gradient-to-r from-[var(--primary)] to-purple-600 text-white text-sm font-bold px-3 py-2 rounded-full shadow-lg animate-pulse">
+          <span
+            className="absolute top-4 left-4 text-white text-sm font-bold px-3 py-2 rounded-full shadow-lg animate-pulse"
+            style={{
+              background:
+                product.badge === "TOP VENTAS"
+                  ? '#ffb347'
+                  : product.badge === "NUEVO"
+                  ? '#4ade80'
+                  : product.badge === "FAVORITO"
+                  ? '#60a5fa'
+                  : 'var(--primary)'
+            }}
+          >
             {product.badge}
           </span>
         )}
@@ -247,7 +302,7 @@ function ProductCard({ product, isSelected, onClick, index }) {
         <h3 className="font-bold text-xl mb-3 text-gray-800 line-clamp-2 group-hover:text-[var(--primary)] transition-colors duration-300">{product.name}</h3>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">{product.description}</p>
         <div className="flex items-center justify-between">
-          <span className="text-3xl font-black text-[var(--primary)] bg-gradient-to-r from-[var(--primary)] to-purple-600 bg-clip-text text-transparent">
+          <span className="text-3xl font-black" style={{ color: '#a67c52' }}>
             ${product.price?.toLocaleString?.("es-CO") ?? product.price}
           </span>
           <span className="text-gray-400 group-hover:text-[var(--primary)] transition-all duration-300 transform group-hover:translate-x-1">
@@ -257,7 +312,7 @@ function ProductCard({ product, isSelected, onClick, index }) {
       </div>
     </button>
   );
-}
+});
 
 function DetailView({ 
   product, 
@@ -274,30 +329,42 @@ function DetailView({
   return (
     <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-10 animate-slideIn">
       {/* Imagen del producto */}
-      <div className="relative">
+      <div className="relative flex flex-col items-center justify-center h-full">
         <button
           onClick={onBack}
           className="absolute top-6 left-6 z-10 bg-white/90 hover:bg-white backdrop-blur-lg rounded-full p-4 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 text-gray-700 hover:text-[var(--primary)]"
         >
           ← Volver
         </button>
-        
-        <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
+
+        <div className="relative w-80 h-96 sm:w-96 sm:h-[28rem] rounded-3xl overflow-hidden shadow-2xl bg-white">
           <img
             src={product.image}
             alt={product.name}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
           {product.badge && (
-            <span className="absolute top-6 right-6 bg-gradient-to-r from-[var(--primary)] to-purple-600 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg animate-bounce">
+            <span
+              className="absolute top-6 right-6 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg animate-bounce"
+              style={{
+                background:
+                  product.badge === "TOP VENTAS"
+                    ? '#ffb347'
+                    : product.badge === "NUEVO"
+                    ? '#4ade80'
+                    : product.badge === "FAVORITO"
+                    ? '#60a5fa'
+                    : 'var(--primary)'
+              }}
+            >
               {product.badge}
             </span>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
         </div>
 
-        {/* Controles de navegación */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center gap-6 bg-white/90 backdrop-blur-lg rounded-full px-8 py-4 shadow-xl">
+        {/* Controles de navegación centrados debajo de la imagen */}
+        <div className="flex items-center gap-6 bg-white/90 backdrop-blur-lg rounded-full px-8 py-4 shadow-xl mt-6">
           <button
             onClick={onPrev}
             className="text-2xl hover:text-[var(--primary)] transition-all duration-300 transform hover:scale-125 text-gray-600"
@@ -319,15 +386,14 @@ function DetailView({
       {/* Información del producto */}
       <div className="flex flex-col justify-center space-y-8 p-8">
         <div className="animate-fadeInUp">
-          <h2 className="text-5xl font-bold mb-6 text-gray-800 leading-tight">{product.name}</h2>
-          <p className="text-xl text-gray-600 leading-relaxed">{product.description}</p>
+          <h2 className="text-5xl font-bold mb-6 text-gray-800 leading-tight h-32 flex items-center">{product.name}</h2>
+          <p className="text-xl text-gray-600 leading-relaxed h-16 flex items-center">{product.description}</p>
         </div>
 
         <div className="space-y-6 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
-          <div className="text-6xl font-black bg-gradient-to-r from-[var(--primary)] to-purple-600 bg-clip-text text-transparent">
+          <div className="text-6xl font-black" style={{ color: '#a67c52' }}>
             ${product.price?.toLocaleString?.("es-CO") ?? product.price}
           </div>
-          
           <div className="space-y-4 text-gray-600">
             <p className="flex items-center gap-3 text-lg"><span className="text-green-500">✓</span> Ingredientes frescos y naturales</p>
             <p className="flex items-center gap-3 text-lg"><span className="text-green-500">✓</span> Hecho artesanalmente</p>
@@ -335,24 +401,24 @@ function DetailView({
           </div>
         </div>
 
-        {/* Botón de pedido */}
-        <a
-          href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(`Hola! Vi ${product.name} en la feria de ${brand} y me interesa. ¿Puedes darme más información?`)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-10 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl text-xl animate-pulse hover:animate-none"
-        >
-          <span>📱</span>
-          Pedir por WhatsApp
-          <span>→</span>
-        </a>
-
-        {/* QR y contacto */}
-        <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-6 flex items-center gap-6 shadow-lg border border-gray-200 animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-          <img src={qrSrc} alt="QR de contacto" className="w-24 h-24 bg-white p-3 rounded-xl shadow-md" />
-          <div>
-            <p className="font-bold text-gray-800 text-lg">Escanea para contactar</p>
-            <p className="text-gray-500 text-base">{instagram}</p>
+        {/* Botón de pedido y QR juntos en desktop */}
+        <div className="flex flex-col lg:flex-row items-center gap-6 w-full">
+          <a
+            href={`https://wa.me/573212254230?text=${encodeURIComponent(`Hola! Vi ${product.name} en la feria de ${brand} y me interesa. ¿Puedes darme más información?`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-5 px-8 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl text-lg animate-pulse hover:animate-none min-w-[220px]"
+          >
+            <span>📱</span>
+            Pedir por WhatsApp
+            <span>→</span>
+          </a>
+          <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-3 flex items-center gap-4 shadow-lg border border-gray-200 animate-fadeInUp w-auto" style={{animationDelay: '0.4s'}}>
+            <img src={qrSrc} alt="QR de contacto" className="w-16 h-16 bg-white p-2 rounded-xl shadow-md" />
+            <div>
+              <p className="font-bold text-gray-800 text-base">Escanea para contactar</p>
+              <p className="text-gray-500 text-sm">{instagram}</p>
+            </div>
           </div>
         </div>
       </div>
