@@ -9,8 +9,19 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Página de inicio con selección de modo */}
-        <Route path="/" element={<Home />} />
+        {/* Root ahora abre el modo Tablet directamente; Home sigue disponible en /home */}
+        <Route path="/" element={
+          <TabletShowcase
+            products={products}
+            brand="Molto"
+            whatsapp="321 225 4230"
+            instagram="@molto_co"
+            qrSrc="https://i.ibb.co/gphnJKq/molto-co-qr-1.png"
+            autoSlideMs={6000}
+            primaryColor="#f6e8d6"
+          />
+        } />
+        <Route path="/home" element={<Home />} />
         
         {/* Modo TV - Para televisores y pantallas grandes */}
         <Route 

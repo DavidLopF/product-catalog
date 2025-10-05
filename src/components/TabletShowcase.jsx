@@ -120,7 +120,7 @@ export default function TabletShowcase({
 
   return (
     <div 
-      className="w-screen h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden"
+      className="w-screen min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden flex flex-col"
       style={{ "--primary": primaryColor }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -135,8 +135,8 @@ export default function TabletShowcase({
         setIsAutoPlaying={setIsAutoPlaying}
       />
 
-      {/* Contenido principal */}
-      <div className="h-[calc(100vh-80px)] p-4">
+  {/* Contenido principal */}
+  <div className="flex-1 h-auto p-4 pb-20 sm:pb-4">
         {currentView === "catalog" ? (
           <CatalogView 
             products={data}
@@ -159,7 +159,7 @@ export default function TabletShowcase({
         )}
       </div>
 
-      {/* Footer con contacto */}
+      {/* Footer con contacto (fijo en móviles, relativo en pantallas >= sm) */}
       <Footer whatsapp={whatsapp} instagram={instagram} />
     </div>
   );
@@ -189,9 +189,10 @@ function Header({ brand, currentView, setCurrentView, isAutoPlaying, setIsAutoPl
         
         <button
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-          className={`px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md transform hover:scale-105 ${
+          className={`hidden sm:inline-flex items-center justify-center px-3 py-2 rounded-lg transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md transform hover:scale-105 ${
             isAutoPlaying ? "bg-[var(--primary)] text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-700"
           }`}
+          aria-label={isAutoPlaying ? 'Pausar presentación automática' : 'Activar presentación automática'}
         >
           {isAutoPlaying ? "⏸️ Pausar" : "▶️ Auto"}
         </button>
@@ -428,11 +429,11 @@ function DetailView({
 
 function Footer({ whatsapp, instagram }) {
   return (
-    <footer className="h-16 bg-white/80 backdrop-blur-xl border-t border-gray-200/50 px-6 flex items-center justify-center shadow-lg">
-      <div className="flex items-center gap-8 text-sm text-gray-600">
-        <span className="flex items-center gap-2">📱 WhatsApp: <strong className="text-gray-800">+{whatsapp}</strong></span>
-        <span className="flex items-center gap-2">📸 Instagram: <strong className="text-gray-800">{instagram}</strong></span>
-        <span className="text-[var(--primary)] font-semibold">💝 ¡Gracias por visitarnos!</span>
+    <footer className="fixed bottom-0 left-0 right-0 sm:relative sm:bottom-auto sm:left-auto sm:right-auto h-16 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 px-4 sm:px-6 flex items-center justify-center shadow-lg">
+      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-8 text-sm text-gray-600">
+        <span className="flex items-center gap-2">📱 <span className="hidden sm:inline">WhatsApp:</span> <strong className="text-gray-800">+{whatsapp}</strong></span>
+        <span className="flex items-center gap-2">📸 <span className="hidden sm:inline">Instagram:</span> <strong className="text-gray-800">{instagram}</strong></span>
+        <span className="text-[var(--primary)] font-semibold">💝 <span className="hidden sm:inline">¡Gracias por visitarnos!</span></span>
       </div>
     </footer>
   );

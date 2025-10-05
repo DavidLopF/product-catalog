@@ -1,12 +1,12 @@
 [
-    {
+  {
     "id": "p1",
     "name": "Pave de leche klim",
     "description": "Delicioso postre frio con base de galleta y crema de leche.",
     "price": 10000,
     "image": "https://i.ibb.co/8nYBQ2kd/Imagen-de-Whats-App-2025-09-20-a-las-20-13-06-943c9e9c.jpg",
     "alt": "Pave de leche klim",
-    "badge": ""
+    "badge": "Top"
   },
   {
     "id": "p2",
@@ -15,7 +15,7 @@
     "price": 8500,
     "image": "https://i.ibb.co/DgWZxTvw/Gemini-Generated-Image-yvhcwoyvhcwoyvhc.png",
     "alt": "Cheesecake con frutos rojos",
-    "badge": "AGOTADO"
+    "badge": "Disponible"
   },
   {
     "id": "p3",
@@ -24,15 +24,24 @@
     "price": 8500,
     "image": "https://i.ibb.co/hJMHhjvG/Imagen-de-Whats-App-2025-09-20-a-las-20-13-58-391f4089.jpg",
     "alt": "Cheesecake de limon",
-    "badge": "AGOTADO"
+    "badge": "Disponible"
   },
-    {
+  {
     "id": "p4",
     "name": "Cuchareable de chocolate",
     "description": "Torta de chocolate con deliciosa crema de vainilla con chocolate blanco.",
-    "price": 10000,
+    "price": 12000,
     "image": "https://i.ibb.co/rR8rv4Vm/Imagen-de-Whats-App-2025-09-20-a-las-20-13-06-e0ed79f9.jpg",
     "alt": "Cuchareable de chocolate",
-    "badge": "Top"
+    "badge": "Mas vendido"
+  },
+      {
+    "id": "p5",
+    "name": "Cuchareable de red velvet",
+    "description": "Torta de red velvet con deliciosa crema de vainilla con chocolate blanco.",
+    "price": 12000,
+    "image": "https://i.ibb.co/gbcWjvQZ/Whats-App-Image-2025-10-05-at-10-37-17-AM.jpg",
+    "alt": "Cuchareable de chocolate",
+    "badge": "Nuevo producto"
   }
 ]
