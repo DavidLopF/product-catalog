@@ -328,17 +328,26 @@ function DetailView({
   brand 
 }) {
   return (
-    <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-10 animate-slideIn">
+    <div className="h-full flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-10 animate-slideIn">
+      {/* Botón volver - fijo arriba en móvil */}
+      <button
+        onClick={onBack}
+        className="lg:hidden fixed top-20 left-4 z-20 bg-white/95 hover:bg-white backdrop-blur-lg rounded-full p-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 text-gray-700 hover:text-[var(--primary)]"
+      >
+        ← Volver
+      </button>
+
       {/* Imagen del producto */}
-      <div className="relative flex flex-col items-center justify-center h-full">
+      <div className="relative flex flex-col items-center justify-center lg:h-full">
+        {/* Botón volver - posición original en desktop */}
         <button
           onClick={onBack}
-          className="absolute top-6 left-6 z-10 bg-white/90 hover:bg-white backdrop-blur-lg rounded-full p-4 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 text-gray-700 hover:text-[var(--primary)]"
+          className="hidden lg:block absolute top-6 left-6 z-10 bg-white/90 hover:bg-white backdrop-blur-lg rounded-full p-4 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 text-gray-700 hover:text-[var(--primary)]"
         >
           ← Volver
         </button>
 
-        <div className="relative w-80 h-96 sm:w-96 sm:h-[28rem] rounded-3xl overflow-hidden shadow-2xl bg-white">
+        <div className="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] rounded-3xl overflow-hidden shadow-2xl bg-white">
           <img
             src={product.image}
             alt={product.name}
@@ -405,7 +414,7 @@ function DetailView({
         {/* Botón de pedido y QR juntos en desktop */}
         <div className="flex flex-col lg:flex-row items-center gap-6 w-full">
           <a
-            href={`https://wa.me/573212254230?text=${encodeURIComponent(`Hola! Vi ${product.name} en la feria de ${brand} y me interesa. ¿Puedes darme más información?`)}`}
+            href={`https://wa.me/573212254230?text=${encodeURIComponent(`Hola! vi este postre ${product.name}. ¿Puedes darme más información?`)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-5 px-8 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl text-lg animate-pulse hover:animate-none min-w-[220px]"
