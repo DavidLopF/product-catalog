@@ -374,19 +374,21 @@ function DetailView({
         </div>
 
         {/* Controles de navegación centrados debajo de la imagen */}
-        <div className="flex items-center gap-6 bg-white/90 backdrop-blur-lg rounded-full px-8 py-4 shadow-xl mt-6">
+        <div className="flex items-center gap-4 lg:gap-6 bg-white/90 backdrop-blur-lg rounded-full px-6 lg:px-8 py-3 lg:py-4 shadow-xl mt-4 lg:mt-6">
           <button
             onClick={onPrev}
-            className="text-2xl hover:text-[var(--primary)] transition-all duration-300 transform hover:scale-125 text-gray-600"
+            className="flex items-center justify-center w-12 h-12 lg:w-auto lg:h-auto rounded-full lg:rounded-none bg-gray-100 lg:bg-transparent hover:bg-gray-200 lg:hover:bg-transparent text-2xl lg:text-2xl hover:text-[var(--primary)] transition-all duration-300 transform hover:scale-110 lg:hover:scale-125 text-gray-600"
+            aria-label="Producto anterior"
           >
             ⬅️
           </button>
-          <span className="text-sm font-semibold text-gray-700 px-3">
+          <span className="text-sm font-semibold text-gray-700 px-2 lg:px-3">
             {currentIndex + 1} de {totalProducts}
           </span>
           <button
             onClick={onNext}
-            className="text-2xl hover:text-[var(--primary)] transition-all duration-300 transform hover:scale-125 text-gray-600"
+            className="flex items-center justify-center w-12 h-12 lg:w-auto lg:h-auto rounded-full lg:rounded-none bg-gray-100 lg:bg-transparent hover:bg-gray-200 lg:hover:bg-transparent text-2xl lg:text-2xl hover:text-[var(--primary)] transition-all duration-300 transform hover:scale-110 lg:hover:scale-125 text-gray-600"
+            aria-label="Siguiente producto"
           >
             ➡️
           </button>
@@ -394,14 +396,14 @@ function DetailView({
       </div>
 
       {/* Información del producto */}
-      <div className="flex flex-col justify-center space-y-8 p-8">
+      <div className="flex flex-col justify-center space-y-6 lg:space-y-8 p-4 lg:p-8">
         <div className="animate-fadeInUp">
-          <h2 className="text-5xl font-bold mb-6 text-gray-800 leading-tight h-32 flex items-center">{product.name}</h2>
-          <p className="text-xl text-gray-600 leading-relaxed h-16 flex items-center">{product.description}</p>
+          <h2 className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 text-gray-800 leading-tight">{product.name}</h2>
+          <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">{product.description}</p>
         </div>
 
-        <div className="space-y-6 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
-          <div className="text-6xl font-black" style={{ color: '#a67c52' }}>
+        <div className="space-y-4 lg:space-y-6 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+          <div className="text-4xl lg:text-6xl font-black" style={{ color: '#a67c52' }}>
             ${product.price?.toLocaleString?.("es-CO") ?? product.price}
           </div>
           <div className="space-y-4 text-gray-600">
@@ -411,23 +413,25 @@ function DetailView({
           </div>
         </div>
 
-        {/* Botón de pedido y QR juntos en desktop */}
-        <div className="flex flex-col lg:flex-row items-center gap-6 w-full">
+        {/* Botón de pedido y QR - más prominente en móvil */}
+        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 w-full">
           <a
-            href={`https://wa.me/573212254230?text=${encodeURIComponent(`Hola! vi este postre ${product.name}. ¿Puedes darme más información?`)}`}
+            href={`https://wa.me/573212254230?text=${encodeURIComponent(`Hola! Vi ${product.name} en la feria de ${brand} y me interesa. ¿Puedes darme más información?`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-5 px-8 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl text-lg animate-pulse hover:animate-none min-w-[220px]"
+            className="w-full lg:w-auto inline-flex items-center justify-center gap-3 lg:gap-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 lg:py-5 px-6 lg:px-8 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl text-base lg:text-lg animate-pulse hover:animate-none min-h-[56px]"
           >
             <span>📱</span>
-            Pedir por WhatsApp
+            <span>Pedir por WhatsApp</span>
             <span>→</span>
           </a>
-          <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-3 flex items-center gap-4 shadow-lg border border-gray-200 animate-fadeInUp w-auto" style={{animationDelay: '0.4s'}}>
-            <img src={qrSrc} alt="QR de contacto" className="w-16 h-16 bg-white p-2 rounded-xl shadow-md" />
+          
+          {/* QR más compacto en móvil, normal en desktop */}
+          <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-2 lg:p-3 flex items-center gap-3 lg:gap-4 shadow-lg border border-gray-200 animate-fadeInUp w-full lg:w-auto" style={{animationDelay: '0.4s'}}>
+            <img src={qrSrc} alt="QR de contacto" className="w-12 h-12 lg:w-16 lg:h-16 bg-white p-1 lg:p-2 rounded-xl shadow-md" />
             <div>
-              <p className="font-bold text-gray-800 text-base">Escanea para contactar</p>
-              <p className="text-gray-500 text-sm">{instagram}</p>
+              <p className="font-bold text-gray-800 text-sm lg:text-base">Escanea para contactar</p>
+              <p className="text-gray-500 text-xs lg:text-sm">{instagram}</p>
             </div>
           </div>
         </div>
