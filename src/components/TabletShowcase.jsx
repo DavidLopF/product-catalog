@@ -281,16 +281,19 @@ const ProductCard = React.forwardRef(function ProductCard({ product, isSelected,
         />
         {product.badge && (
           <span
-            className="absolute top-4 left-4 text-white text-sm font-bold px-3 py-2 rounded-full shadow-lg animate-pulse"
+            className="absolute top-4 left-4 text-white text-sm font-bold px-3 py-2 rounded-full shadow-lg  bg-green-600"
             style={{
               background:
-                product.badge === "TOP VENTAS"
-                  ? '#ffb347'
-                  : product.badge === "NUEVO"
-                  ? '#4ade80'
-                  : product.badge === "FAVORITO"
-                  ? '#60a5fa'
+                product.badge === "Disponible"
+                  ? '#94DB2A'
+                  : product.badge === "Nuevo producto"
+                  ? '#0DE0A4'
+                  : product.badge === "Mas vendido"
+                  ? '#DE934B'
+                  : product.badge == 'Top'
+                  ? '#E01F0D'
                   : 'var(--primary)'
+                  
             }}
           >
             {product.badge}
